@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        .center {
+                margin: auto;
+                width: 50%;
+                padding: 10px;
+                }
+        .center2 {
+                margin: auto;
+                width: 50%;
+                padding: 10px;
+                }
+        #color {
+            background-color: rgb(16, 47, 82);
+        }
+        #stream {
+            transform: rotate(180deg);
+            border-color: #ffffff;
+            float: right;
+            }
+
+        #pad {
+            float: right;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>LivePi</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="{% static 'Home/css/bootstrap.css' %}" rel="stylesheet" />
+    <!-- FONT AWESOME STYLE  -->
+    <link href="{% static 'Home/css/font-awesome.css' %}" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="{% static 'Home/css/style.css' %}" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse set-radius-zero" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="{% static 'Home/img/logo2.png' %}" />
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-left">
+                            <li><a href="http://127.0.0.1:8000/home/CloudRobot/" class="menu-top-active">Home</a></li>
+                            <li><a href="{% url 'LivePi:index' %}">LivePi</a></li>
+                            <li><a href="http://127.0.0.1:8000/admin/Home/measurement/">Measurements</a></li>
+                            <li>
+                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Agents Info <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="http://127.0.0.1:8000/admin/Home/agent/">Agents</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="http://127.0.0.1:8000/admin/Home/task/">Tasks</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="http://127.0.0.1:8000/admin/Home/agenttask/">Agent Tasks</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="http://127.0.0.1:8000/admin/Home/event/">Events</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="http://127.0.0.1:8000/admin/Home/sensor/">Sensors</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="http://127.0.0.1:8000/admin/Home/threshold/">Thresholds</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="http://127.0.0.1:8000/admin/Home/report/">Reports</a></li>
+                                </ul>
+                            </li>
+                    
+
+                        </ul>
+                        <div class="right-div">
+                            <a href="http://127.0.0.1:8000/" class="btn btn-danger pull-right">LOG OUT</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+     <!-- MENU SECTION END-->
+ 
+
+      
+             <div class="row">
+                
+              <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div id="carousel-example" data-ride="carousel" >
+                        <body style="margin: 0px; background: #ffffff; height: 100%"><img id="stream" style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 25%);" src="http://192.168.43.36:8080/?action=stream">
+                            <div>
+                                <div>
+                                    <div class=center>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button id="color" type="button" class="btn forward-btn btn-success btn-lg" center>&#11165;</button><br>
+                                        <button id="color" type="button" class="btn left-btn btn-success btn-lg" center>&#11164;</button>
+                                        <button id="color" type="button" class="btn stop-btn btn-success btn-lg" center>&#10074;&#10074;</button>
+                                        <button id="color" type="button" class="btn right-btn btn-success btn-lg" center>&#11166;</button><br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button id="color" type="button" class="btn backward-btn btn-success btn-lg" center>&#11167;</button>
+                            </div>
+                                </div>
+                            </div>
+                        </body>
+                    <!--INDICATORS-->
+                    
+                     <ol class="carousel-indicators">
+                        
+                    </ol>
+                </div>
+              </div>
+                 
+                 <div class="col-md-4 col-sm-4 col-xs-12">
+                 <div id="measurements" class="panel panel-primary ">
+                     </div>
+                        
+
+                    </div>
+             </div>
+
+            
+
+             
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="{% static 'Home/js/jquery-1.10.2.js' %}"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="{% static 'Home/js/bootstrap.js' %}"></script>
+      <!-- CUSTOM SCRIPTS  -->
+    <script src="{% static 'Home/js/custom.js' %}"></script>
+    <script>
+        function count(){
+            fetch('http://127.0.0.1:8000/home/measurements/')
+            .then(response => response.text())
+            .then (text => {
+            document.querySelector('#measurements').innerHTML=text;
+    
+            })
+        }
+        document.addEventListener('DOMContentLoaded', function(){
+            setInterval(count, 1000)
+        })
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'LivePi/js/main.js' %}"></script>
+
+</body>
+</html>

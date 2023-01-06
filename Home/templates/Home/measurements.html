@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #measure1 {
+            padding: 25px;
+            
+            
+        }
+        #measure2 {
+            background: #cce5ff;
+            margin: 5px;
+            font-size: 17px;
+        }
+        h1 {
+            font-weight: bold;
+            font-style: italic;
+            text-align: left;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+
+            <div>
+                <h1 style="font-size:25px;">Measurements</h1>
+            </div>
+                <ul id="measure1">
+                    {% for measurement in measurements %}
+                    
+                    <li id="measure2"> {{measurement.sensor}} : {{measurement.value}}    - {{measurement.agent}}</li>
+                    {% endfor %}
+                </ul>
+
+</body>
+</html>
+                
